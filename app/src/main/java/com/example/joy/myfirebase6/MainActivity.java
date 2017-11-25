@@ -1,6 +1,7 @@
 package com.example.joy.myfirebase6;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private EditText email,pass;
-    private Button signUP,signIN;
+    private Button signUP,signIN,passRecovery,passChange,emailChange,logOut;
     private ProgressDialog dialog;
     private FirebaseAuth auth;
 
@@ -33,6 +34,11 @@ public class MainActivity extends AppCompatActivity {
         pass=findViewById(R.id.edittext_pass);
         signUP=findViewById(R.id.btn_signup);
         signIN=findViewById(R.id.btn_signin);
+         passRecovery=findViewById(R.id.btn_recovery);
+         passChange=findViewById(R.id.btn_change);
+        emailChange=findViewById(R.id.btn_email_change);
+        logOut=findViewById(R.id.btn_logout);
+
 
 
 
@@ -41,14 +47,23 @@ public class MainActivity extends AppCompatActivity {
         dialog.setMessage("Please wait...");
         dialog.setCancelable(false);
 
+
         //----auth---------------
         auth=FirebaseAuth.getInstance();
 
+
         //---onClick---------------------------
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                auth.signOut();
+                Toast.makeText(MainActivity.this,"Successfully Logout",Toast.LENGTH_LONG).show();
+            }
+        });
+
         signUP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
 
                 if (pass.getText().toString().length()<6){
 
@@ -65,14 +80,12 @@ public class MainActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
                             dialog.cancel();
-
                             if (task.isSuccessful()){
                                 Toast.makeText(MainActivity.this,"Succesfully registered !",Toast.LENGTH_LONG).show();
                             }
                             else {
                                 Toast.makeText(MainActivity.this,"SignUp failed !!",Toast.LENGTH_LONG).show();
                             }
-
                         }
                     });
 
@@ -86,8 +99,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
                 dialog.show();
+
                 auth.signInWithEmailAndPassword(email.getText().toString(),pass.getText().toString()).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -100,14 +113,30 @@ public class MainActivity extends AppCompatActivity {
                         else {
                             Toast.makeText(MainActivity.this,"Login failed !!",Toast.LENGTH_LONG).show();
                         }
-
-
                     }
                 });
-
             }
         });
 
+
+        passChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,PassChangeActivity.class));
+            }
+        });
+        passRecovery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,PassRecoveryActivity.class));
+            }
+        });
+        emailChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,EmailChangeActivity.class));
+            }
+        });
 
     }
 }

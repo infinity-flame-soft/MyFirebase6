@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,37 +7,85 @@
     android:orientation="vertical"
     tools:context="com.example.joy.myfirebase6.MainActivity">
 
-    <EditText
-        android:id="@+id/edittext_email"
-        android:hint="Enter your email......"
-        android:padding="5dp"
-        android:layout_margin="20dp"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <EditText
-        android:id="@+id/edittext_pass"
-        android:hint="Enter your password......"
-        android:padding="5dp"
-        android:layout_margin="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <Button
-        android:id="@+id/btn_signup"
-        android:textSize="20sp"
-        android:text="Sign Up"
-        android:textColor="#fff"
-        android:layout_margin="20dp"
-        android:background="@color/colorPrimary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <Button
-        android:id="@+id/btn_signin"
-        android:textSize="20sp"
-        android:text="Log in"
-        android:textColor="#fff"
-        android:layout_margin="20dp"
-        android:background="@color/colorPrimary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent">
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/edittext_email"
+            android:hint="Enter your email......"
+            android:padding="5dp"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/edittext_pass"
+            android:hint="Enter your password......"
+            android:padding="5dp"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_signup"
+            android:textSize="20sp"
+            android:text="Sign Up"
+            android:textColor="#fff"
+            android:layout_margin="20dp"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_signin"
+            android:textSize="20sp"
+            android:text="Log in"
+            android:textColor="#fff"
+            android:layout_margin="20dp"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_recovery"
+            android:textColor="#000"
+            android:textAllCaps="false"
+            android:background="@android:color/transparent"
+            android:layout_margin="20dp"
+            android:text="Forgot Password ?"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_change"
+            android:textColor="#fff"
+            android:textAllCaps="false"
+            android:background="@android:color/holo_green_dark"
+            android:layout_margin="20dp"
+            android:text="Change Password"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_email_change"
+            android:textColor="#fff"
+            android:textAllCaps="false"
+            android:background="@android:color/holo_green_dark"
+            android:layout_margin="20dp"
+            android:text="Change Email"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_logout"
+            android:textColor="#fff"
+            android:textAllCaps="false"
+            android:background="@android:color/holo_green_dark"
+            android:layout_margin="20dp"
+            android:text="Log out"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+</ScrollView>
