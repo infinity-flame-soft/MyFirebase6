@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private EditText email,pass;
-    private Button signUP,signIN,passRecovery,passChange,emailChange,logOut;
+    private Button signUP,signIN,passRecovery,passChange,emailChange,logOut,btnDB;
     private ProgressDialog dialog;
     private FirebaseAuth auth;
 
@@ -34,11 +34,11 @@ public class MainActivity extends AppCompatActivity {
         pass=findViewById(R.id.edittext_pass);
         signUP=findViewById(R.id.btn_signup);
         signIN=findViewById(R.id.btn_signin);
-         passRecovery=findViewById(R.id.btn_recovery);
-         passChange=findViewById(R.id.btn_change);
+        passRecovery=findViewById(R.id.btn_recovery);
+        passChange=findViewById(R.id.btn_change);
         emailChange=findViewById(R.id.btn_email_change);
         logOut=findViewById(R.id.btn_logout);
-
+        btnDB=findViewById(R.id.btn_db);
 
 
 
@@ -53,6 +53,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         //---onClick---------------------------
+        btnDB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(MainActivity.this,DBActivity.class));
+            }
+        });
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
